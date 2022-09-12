@@ -1,0 +1,379 @@
+html {
+    height: 100%;
+    background-color: #1c1c1c;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+select,
+.headerItem {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 300;
+}
+
+p {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 200;
+}
+
+p>a,
+p>a:visited {
+    color: #aaed45;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #191414;
+}
+
+.headerItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    width: 10%;
+    text-align: center;
+    padding: 0;
+    /* background-color: #FFD700; */
+    /* border: 1px solid white;
+    border-radius: 2px; */
+}
+
+.headerItem a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    /* background-color: purple; */
+    height: 100%;
+}
+
+.headerItem a:visited {
+    color: white;
+}
+
+.headerItem:hover {
+    background-color: white;
+    color: #191414;
+    cursor: pointer;
+}
+
+.headerItem a:hover,
+.headerItem a:visited:hover {
+    color: #191414;
+}
+
+
+/* Main Content*/
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1% 0 3% 0;
+    align-items: center;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.contentContainer h1,
+.contentContainer h2 {
+    padding: 12px 0;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    color: white;
+    /* background-color: mediumvioletred; */
+}
+
+.contentContainer p {
+    color: white;
+    font-size: 16px;
+    width: 50%;
+    text-align: center;
+}
+
+
+/* Input */
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    width: 100%;
+}
+
+.inputContainer img {
+    width: 15%;
+    margin: 0;
+    padding: 0;
+}
+
+.inputContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    /* background-color: aqua; */
+}
+
+.inputContainer .submitContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    /* background-color: purple; */
+    padding: 12px 0;
+    margin: 0 auto;
+}
+
+.inputContainer input {
+    width: 90%;
+    height: 100%;
+    color: #191414;
+    border: none;
+    border-radius: 2px;
+    padding: 12px;
+    margin: 0 6px 0 0;
+}
+
+.inputContainer select {
+    width: 64px;
+    height: 100%;
+    color: #191414;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #aaed45;
+    padding: 8px;
+    margin: 0 auto;
+}
+
+.inputContainer button,
+.feedbackContainer button {
+    width: 60%;
+    height: 40%;
+    color: #191414;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #aaed45;
+    padding: 8px;
+    margin: 12px auto 0;
+}
+
+.inputContainer select:hover,
+.inputContainer button:hover,
+.feedbackContainer button:hover {
+    cursor: pointer
+}
+
+
+/* Recommendation */
+
+.recommendationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    margin: 0 auto;
+    padding: 36px 0 0 0;
+    align-items: center;
+    width: 100%;
+    /* background-color: magenta; */
+}
+
+.recommendationContainer ul {
+    list-style-type: none;
+    /* background-color: aliceblue; */
+}
+
+.recommendationContainer li {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    background-color: rgba(25, 20, 20, 0.5);
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 4px auto 0;
+    width: 85%;
+}
+
+.recommendationContainer img {
+    height: 24px;
+    padding: 0 6px 0 0;
+}
+
+.recommendationContainer a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.recommendationContainer a:hover {
+    cursor: pointer;
+}
+
+.recommendationContainer a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.recommendationContainer .resultTitle {
+    padding-bottom: 0px;
+}
+
+
+/* .recommendationContainer .openSongButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #aaed45;
+    color: #191414;
+    height: 100%;
+    font-weight: 600;
+    padding: 10px;
+} */
+
+
+/* Feedback */
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.radioButtonContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.radioButtonContainer>input {
+    display: none;
+}
+
+.radioButtonContainer>label {
+    position: relative;
+    width: 32px;
+    font-size: 24px;
+    color: #FFD700;
+    cursor: pointer;
+}
+
+.radioButtonContainer>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+}
+
+.radioButtonContainer>label:hover:before,
+.radioButtonContainer>label:hover~label:before {
+    opacity: 1 !important;
+}
+
+.radioButtonContainer>input:checked~label:before {
+    opacity: 1;
+}
+
+.radioButtonContainer:hover>input:checked~label:before {
+    opacity: 0.4;
+}
+
+
+/* Media Queries & Animation */
+
+@media (max-width: 1024px) {
+    .contentContainer {
+        flex-direction: column;
+    }
+    .inputContainer form {
+        width: 50%;
+    }
+    .inputContainer select,
+    .inputContainer button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contentContainer {
+        flex-direction: column;
+    }
+    .inputContainer form {
+        width: 65%;
+    }
+    .inputContainer select,
+    .inputContainer button {
+        font-size: 14px;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+}
+
+.animatedFadeInUp {
+    opacity: 0;
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}

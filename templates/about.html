@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='/about.css') }}">
+{% endblock %}
+
+{%block body %}
+
+<div class="aboutContainer">
+{% for person in people %}
+  {% if person.id % 2 == 0 %}
+    <div class="personContainer reversedPerson">
+      <img src="https://www.freeiconspng.com/uploads/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon"/>
+      <div class="descriptionContainer reversedDescription">
+        <h1>{{person.name}}</h1>
+        <p>Email Address: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
+        <p>{{person.about}}</p>
+      </div>
+    </div>
+    <hr>
+  {% else %}
+    <div class="personContainer">
+      <img src="https://www.freeiconspng.com/uploads/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon"/>
+      <div class="descriptionContainer">
+        <h1>{{person.name}}</h1>
+        <p>Email Address: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
+        <p>{{person.about}}</p>
+      </div>
+    </div>
+    <hr>
+  {% endif%}
+{% endfor %}
+</div>
+
+{% endblock %}

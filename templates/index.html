@@ -1,7 +1,36 @@
 {% extends 'base.html' %}
 
-{% block head %} {% endblock %}
-
 {%block body %}
-<h1>Hello, World! (from templates/index.html)</h1>
+<div class="contentContainer">
+  <div class="inputContainer">
+    <img src="https://www.freeiconspng.com/uploads/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon"/>
+    <h1>Spotify Song Recommendation App</h1>
+    <p>Paste your playlist link below. 
+      Using your playlist, our application will generate a new playlist of songs we think you may like.
+      Don't know how to get your playlist link? Check out this <a href="https://wordpress.com/support/audio/spotify/">article</a>.
+    </p>
+    <h2>Input Playlist Link Below</h2>
+    <form action="/recommend" method="POST">
+      <div class="submitContent">
+        <input id="URL" name="URL" type="text">
+        <select name="numsongs" id="numsongs">
+          {% for num in [5, 10, 15, 20, 25] %}
+            <option value="{{num}}">{{num}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit">Get Recommendations</button>
+    </form>
+  </div>
+
+  {% if feedback %}
+    <br>
+    <br>
+    <h2>Thank you for the feedback!</h2>
+    <h2>If you have another playlist link, please enter it above.</h2>
+  {% endif %}
+
+  {% block results %}{% endblock %}
+</div>
+
 {% endblock %}

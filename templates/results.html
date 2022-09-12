@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{%block results %}
+
+{% if noLink %}
+  <br>
+  <br>
+  <h2>Please input a playlist link.</h2>
+{% else %}
+  <div class="recommendationContainer">
+    <h2 class="resultTitle animated animatedFadeInUp fadeInUp">Here's what we think you'd like </h2>
+    <p class="animated animatedFadeInUp fadeInUp">Click on any song to open it on Spotify.</p>
+    <ul class="animated animatedFadeInUp fadeInUp">
+      {% for song in songs %}
+        <li>
+          <a title="Image from freeiconspng.com">
+            <img src="https://www.freeiconspng.com/uploads/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon" />
+          </a>
+          <a href="{{song.link}}">
+            {{song.artist}} - {{song.title}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <br>
+  <div class="feedbackContainer">
+    <h2>How did we do? Let us know!</h2>
+    <form class="rating" action="/" method="POST">
+      <div class="radioButtonContainer">
+        <input type="radio" name="rating" value="5" id="5" checked="checked"><label for="5">☆</label>
+        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+      </div>
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+{% endif %}
+
+{% endblock %}

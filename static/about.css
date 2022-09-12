@@ -1,0 +1,102 @@
+html {
+    height: 100%;
+    background-color: #1c1c1c;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+p {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 200;
+}
+
+.aboutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background-color: blueviolet; */
+}
+
+.aboutContainer hr {
+    margin: 0 auto;
+    padding: 0;
+    height: 1px;
+    width: 95%;
+    border: none;
+    background-color: #333333;
+}
+
+.personContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: orange; */
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.reversedPerson {
+    flex-direction: row-reverse;
+}
+
+.personContainer img {
+    /* background-color: aqua; */
+    height: 100%;
+    width: 20%;
+}
+
+.descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* background-color: greenyellow; */
+    height: 100%;
+    padding: 0 10px;
+}
+
+.descriptionContainer h1 {
+    font-size: 64px;
+    padding: 4px 0;
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+    /* background-color: mediumvioletred; */
+}
+
+.descriptionContainer p {
+    font-size: 18px;
+    color: white;
+    width: 100%;
+    padding: 9px 0;
+    margin: 0 auto;
+    /* background-color: palevioletred; */
+}
+
+.descriptionContainer p>a,
+.descriptionContainer p>a:visited {
+    color: #aaed45;
+}
+
+
+/* .reversedDescription {
+    text-align: right;
+} */
