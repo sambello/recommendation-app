@@ -7,29 +7,40 @@
 {%block body %}
 
 <div class="aboutContainer">
-{% for person in people %}
-  {% if person.id % 2 == 0 %}
-    <div class="personContainer reversedPerson">
-      <img src="https://www.freeiconspng.com/uploads/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon"/>
-      <div class="descriptionContainer reversedDescription">
-        <h1>{{person.name}}</h1>
-        <p>Email Address: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
-        <p>{{person.about}}</p>
-      </div>
-    </div>
+  <div class="aboutTitleContainer">
+    <h1>
+      Meet the Team
+    </h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at gravida justo.
+      In facilisis dictum ante nec efficitur. Mauris quis tellus ultricies, eleifend magna vel, sodales odio.
+      Mauris ornare cursus sapien sit amet facilisis. Cras finibus eget justo vel vehicula.
+      Praesent in risus at erat tincidunt malesuada ut in eros. Phasellus at justo vel est sollicitudin vehicula.
+    </p>
+  </div>
+  {% for person in people %}
+    {% if person.id % 2 == 0 %}
     <hr>
-  {% else %}
-    <div class="personContainer">
-      <img src="https://www.freeiconspng.com/uploads/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon"/>
-      <div class="descriptionContainer">
-        <h1>{{person.name}}</h1>
-        <p>Email Address: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
-        <p>{{person.about}}</p>
+      <div class="personContainer reversedPerson">
+        <img src="{{person.image}}"/>
+        <div class="descriptionContainer reversedDescription">
+          <h2>{{person.name}}</h2>
+          <p>Email Address: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
+          <p>{{person.about}}</p>
+        </div>
       </div>
-    </div>
-    <hr>
-  {% endif%}
-{% endfor %}
+    {% else %}
+      <hr>
+      <div class="personContainer">
+        <img src="{{person.image}}"/>
+        <div class="descriptionContainer">
+          <h2>{{person.name}}</h2>
+          <p>Email Address: <a href="mailto:{{person.email}}">{{person.email}}</a></p>
+          <p>{{person.about}}</p>
+        </div>
+      </div>
+    {% endif%}
+  {% endfor %}
 </div>
 
 {% endblock %}

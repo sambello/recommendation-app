@@ -22,23 +22,23 @@ def index():
 def about():
   people = [{
     "id": 1,
-    "name": "Sam Bello",
-    "age": str(age(date(1996, 9, 25))),
+    "name": "Samuel Bello",
+    "image": "/static/sam-bello-img-square.jpeg",
     "email": "sambello25@gmail.com",
     "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at gravida justo. In facilisis dictum ante nec efficitur. Mauris quis tellus ultricies, eleifend magna vel, sodales odio. Mauris ornare cursus sapien sit amet facilisis. Cras finibus eget justo vel vehicula. Praesent in risus at erat tincidunt malesuada ut in eros. Phasellus at justo vel est sollicitudin vehicula."
   },
   {
     "id": 2,
     "name": "Rohan Rastogi",
-    "age": "27",
-    "email": "rrastogi@signifyhealth.com",
+    "image": "/static/yellow-app-spotify-icon-1.png",
+    "email": "r.a.rastogi2014@gmail.com",
     "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at gravida justo. In facilisis dictum ante nec efficitur. Mauris quis tellus ultricies, eleifend magna vel, sodales odio. Mauris ornare cursus sapien sit amet facilisis. Cras finibus eget justo vel vehicula. Praesent in risus at erat tincidunt malesuada ut in eros. Phasellus at justo vel est sollicitudin vehicula."
   },
   {
     "id": 3,
     "name": "Zachary Roga",
-    "age": "27",
-    "email": "zroga@signifyhealth.com",
+    "image": "/static/yellow-app-spotify-icon-1.png",
+    "email": "zroga95@gmail.com",
     "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at gravida justo. In facilisis dictum ante nec efficitur. Mauris quis tellus ultricies, eleifend magna vel, sodales odio. Mauris ornare cursus sapien sit amet facilisis. Cras finibus eget justo vel vehicula. Praesent in risus at erat tincidunt malesuada ut in eros. Phasellus at justo vel est sollicitudin vehicula."
   }]
   return render_template('about.html', people=people)

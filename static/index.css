@@ -58,8 +58,6 @@ p>a:visited {
     text-align: center;
     padding: 0;
     /* background-color: #FFD700; */
-    /* border: 1px solid white;
-    border-radius: 2px; */
 }
 
 .headerItem a {
@@ -89,7 +87,7 @@ p>a:visited {
 }
 
 
-/* Main Content*/
+/* Main Content */
 
 .contentContainer {
     display: flex;
@@ -131,7 +129,7 @@ p>a:visited {
 }
 
 .inputContainer img {
-    width: 15%;
+    width: 20%;
     margin: 0;
     padding: 0;
 }
@@ -220,7 +218,7 @@ p>a:visited {
 .recommendationContainer li {
     display: flex;
     flex-direction: row;
-    justify-content: baseline;
+    justify-content: flex-start;
     background-color: rgba(25, 20, 20, 0.5);
     border: none;
     border-radius: 2px;
@@ -253,18 +251,6 @@ p>a:visited {
 .recommendationContainer .resultTitle {
     padding-bottom: 0px;
 }
-
-
-/* .recommendationContainer .openSongButton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #aaed45;
-    color: #191414;
-    height: 100%;
-    font-weight: 600;
-    padding: 10px;
-} */
 
 
 /* Feedback */
@@ -313,33 +299,88 @@ p>a:visited {
 }
 
 
-/* Media Queries & Animation */
+/* Media Queries */
 
 @media (max-width: 1024px) {
+    /* Main Content */
     .contentContainer {
         flex-direction: column;
+    }
+    /* Input */
+    .inputContainer img {
+        width: 25%;
     }
     .inputContainer form {
         width: 50%;
     }
+}
+
+@media (max-width: 767px) {
+    /* Header */
+    .header {
+        justify-content: center;
+    }
+    .headerItem {
+        width: 25%;
+    }
+    /* Main Content */
+    .contentContainer {
+        flex-direction: column;
+    }
+    /* Input */
+    .inputContainer form {
+        width: 65%;
+    }
+    .inputContainer img {
+        width: 30%;
+    }
     .inputContainer select,
-    .inputContainer button {
+    .inputContainer button,
+    .feedbackContainer button {
+        font-size: 14px;
+    }
+    /* Recommendation */
+    .recommendationContainer img {
+        height: 20px;
+    }
+    .recommendationContainer a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 450px) {
+    /* Main Content */
+    .contentContainer h1 {
+        font-size: 23px;
+    }
+    .contentContainer h2 {
+        font-size: 18px;
+    }
+    .contentContainer p {
+        font-size: 14px;
+    }
+    /* Input */
+    .inputContainer img {
+        width: 40%;
+    }
+    .inputContainer input {
+        width: 90%;
+    }
+    .inputContainer button,
+    .feedbackContainer button {
+        width: 80%;
+    }
+    /* Recommendation */
+    .recommendationContainer img {
+        height: 18px;
+    }
+    .recommendationContainer a {
         font-size: 14px;
     }
 }
 
-@media (max-width: 767px) {
-    .contentContainer {
-        flex-direction: column;
-    }
-    .inputContainer form {
-        width: 65%;
-    }
-    .inputContainer select,
-    .inputContainer button {
-        font-size: 14px;
-    }
-}
+
+/* Animation */
 
 @keyframes fadeInUp {
     from {
