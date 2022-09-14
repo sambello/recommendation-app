@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
+{% block head %}
+  <script src="{{ url_for('static', filename='functions.js') }}"></script>
+{% endblock %}
+
 {%block body %}
-<div class="contentContainer">
+<div id="contentContainer" class="contentContainer">
   <div class="inputContainer">
     <img src="/static/yellow-app-spotify-icon-1.png" alt="yellow app spotify icon"/>
     <h1>Spotify Song Recommendation App</h1>
@@ -19,7 +23,7 @@
           {% endfor %}
         </select>
       </div>
-      <button type="submit">Get Recommendations</button>
+      <button id="submit" type="submit" value="submit" onClick="return required()">Get Recommendations</button>
     </form>
   </div>
 

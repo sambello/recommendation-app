@@ -1,5 +1,6 @@
+import os
 from datetime import date
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, request, render_template, url_for, redirect, send_from_directory
 # import pandas as pd
 # from application.features import *
 # from application.model import *
@@ -47,12 +48,13 @@ def about():
 def recommend():
   
   URL = request.form['URL']
-  print(URL)
+  # print(URL)
 
   numsongs = int(request.form['numsongs'])
-  print(numsongs)
+  # print(numsongs)
 
   if URL == "":
+    print("hitting /recommend endpoint")
     return render_template('results.html', noLink=True)
   else:
     # df = extract(URL)
@@ -124,6 +126,10 @@ def recommend():
 def feedback():
   print(request.form['rating'])
   return redirect("/")
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == "__main__":
   app.run(debug=True)
