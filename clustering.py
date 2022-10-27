@@ -6,18 +6,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import pandas as pd
-
-playlist_link = "https://open.spotify.com/playlist/37i9dQZEVXbNG2KDcFcKOF?si=1333723a6eff4b7f"
-playlist_URI = playlist_link.split("/")[-1].split("?")[0]
+from sample import recommend_similar_song_set 
 
 with open('spotipy_cred.json','r') as f:
     data = json.load(f) 
-
-
-#Authentication - without user
+    
 client_credentials_manager = SpotifyClientCredentials(client_id=data['SPOTIPY_CLIENT_ID'], client_secret=data['SPOTIPY_CLIENT_SECRET'])
 sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
-
 
 def get_playlist_info(playlist_id, spot):
     info_list = []
@@ -88,7 +83,6 @@ def get_playlist_subsets(playlist_id, spot):
     
     return categorical_music, numeric_mus, vector
 
-native_fields, machine_fields, vector = get_playlist_subsets(playlist_URI, sp)
 
 def get_cluster_count(df):
     wcss = []
@@ -126,14 +120,6 @@ def cluster_data(data, n):
     
     return new_df, centroids
 
-clus, centers = cluster_data(machine_fields.drop(columns = ['track_name']), 3)
-
-clustered =  pd.concat([machine_fields, clus], axis=1)
-
-colors = ['r', 'g', 'b','y', 'o', 'i']
-clustered['c'] = clustered.cluster.apply(lambda x: colors[x])
-
-
 def plot_axis_cluster(clust, cent, cat1, cat2):
     divisor = 4
     
@@ -153,9 +139,32 @@ def plot_axis_cluster(clust, cent, cat1, cat2):
     
     return plt
     
+def recommend_from_urls(playlist_link, song_pool_link):
     
+    #extract uris
+    playlist_uri = playlist_link.split("/")[-1].split("?")[0]
+    song_pool_uri = song_pool_link.split("/")[-1].split("?")[0]
+    
+    #get user input playlist summary
+    native_fields1, machine_fields1, vector1 = get_playlist_subsets(playlist_uri, sp)
+    clus1, centers1 = cluster_data(machine_fields1.drop(columns = ['track_name']), 3)
+    clustered1 =  pd.concat([machine_fields1, clus1, native_fields1['track_uri']], axis=1)
+    
+    #get recommendation source playlist info
+    native_fields, machine_fields, vector = get_playlist_subsets(song_pool_uri, sp)
+    clus, centers = cluster_data(machine_fields.drop(columns = ['track_name']), 3)
+    clustered =  pd.concat([machine_fields, clus, native_fields['track_uri']], axis=1)
+    
+    #ensure all fields across both df    
+    filled_clust = clustered.drop(columns = ['cen_x', 'cen_y', 'cluster']).append(pd.DataFrame(vector1).T).fillna(0).iloc[:-1]
+    filled_vect = clustered.drop(columns = ['cen_x', 'cen_y', 'cluster']).append(pd.DataFrame(vector1).T).fillna(0).iloc[-1]
+      
+    return recommend_similar_song_set(clustered1.drop(columns = ['track_name']), 
+                           pd.DataFrame(filled_vect).T.drop(columns = ['track_name', 'track_uri']),
+                           filled_clust,
+                           10)
 
-plter = plot_axis_cluster(clustered, centers, 'duration_ms', 'valence')
-plter.show()
+
+
 
 
